@@ -465,6 +465,22 @@ typedef enum _sai_attr_value_type_t
      * @brief Attribute value is a json.
      */
     SAI_ATTR_VALUE_TYPE_JSON,
+
+    /**
+     * @brief Attribute value is port CTLE values list.
+     */
+    SAI_ATTR_VALUE_TYPE_PORT_CTLE_VALUES_LIST,
+
+    /**
+     * @brief Attribute value is port FFE values list.
+     */
+    SAI_ATTR_VALUE_TYPE_PORT_FFE_VALUES_LIST,
+
+    /**
+     * @brief Attribute value is port DFE values list.
+     */
+    SAI_ATTR_VALUE_TYPE_PORT_DFE_VALUES_LIST,
+
 } sai_attr_value_type_t;
 
 /**
