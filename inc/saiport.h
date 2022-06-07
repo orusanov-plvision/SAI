@@ -751,6 +751,30 @@ typedef enum _sai_port_attr_t
      */
     SAI_PORT_ATTR_OPER_SPEED,
 
+    /**
+     * @brief List of port's CTLE values
+     *
+     * @type sai_port_ctle_values_list_t
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_CTLE_VALUES,
+
+    /**
+     * @brief List of port's FFE values
+     *
+     * @type sai_port_ffe_values_list_t
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_FFE_VALUES,
+
+    /**
+     * @brief Port's DFE value
+     *
+     * @type sai_port_dfe_values_list_t
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_DFE_VALUES,
+
     /* READ-WRITE */
 
     /**
