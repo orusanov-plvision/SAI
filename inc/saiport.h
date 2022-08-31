@@ -487,6 +487,46 @@ typedef enum _sai_port_dual_media_t
 } sai_port_dual_media_t;
 
 /**
+ * @brief Attribute data for #SAI_PORT_ATTR_TX_RX_READY
+ * RX, TX ready separately or both
+ */
+typedef enum _sai_port_tx_rx_ready_t
+{
+    /** TX not ready, RX not ready */
+    SAI_PORT_TX_RX_READY_RX_TX_NOT_READY,
+
+    /** RX ready, TX not ready */
+    SAI_PORT_TX_RX_READY_RX_READY,
+
+    /** TX ready, RX not ready */
+    SAI_PORT_TX_RX_READY_TX_READY,
+
+    /** TX ready, RX ready */
+    SAI_PORT_TX_RX_READY_RX_TX_READY
+
+} sai_port_tx_rx_ready_t;
+
+/**
+ * @brief Attribute data for #SAI_PORT_ATTR_TX_RX_LOCKED
+ * RX, TX locked separately or both
+ */
+typedef enum _sai_port_tx_rx_locked_t
+{
+    /** TX not locked, RX not locked */
+    SAI_PORT_TX_RX_LOCKED_RX_TX_NOT_LOCKED,
+
+    /** RX locked, TX not locked */
+    SAI_PORT_TX_RX_LOCKED_RX_LOCKED,
+
+    /** TX locked, RX not locked */
+    SAI_PORT_TX_RX_LOCKED_TX_LOCKED,
+
+    /** TX locked, RX locked */
+    SAI_PORT_TX_RX_LOCKED_RX_TX_LOCKED
+
+} sai_port_tx_rx_locked_t;
+
+/**
  * @brief Attribute Id in sai_set_port_attribute() and
  * sai_get_port_attribute() calls
  */
@@ -2183,6 +2223,54 @@ typedef enum _sai_port_attr_t
      * @flags READ_ONLY
      */
     SAI_PORT_ATTR_DFE_VALUES,
+
+    /**
+     * @brief Port's serdes signal detected
+     *
+     * @type bool
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_SIGNAL_DETECTED,
+
+    /**
+     * @brief Port's CDR locked
+     *
+     * @type bool
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_CDR_LOCKED,
+
+    /**
+     * @brief Port's DSP locked
+     *
+     * @type bool
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_DSP_LOCKED,
+
+    /**
+     * @brief Port's TX RX ready
+     *
+     * @type sai_port_tx_rx_ready_t
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_TX_RX_READY,
+
+    /**
+     * @brief Port's TX RX locked
+     *
+     * @type sai_port_tx_rx_locked_t
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_TX_RX_LOCKED,
+
+    /**
+     * @brief Port's SNR
+     *
+     * @type sai_uint32_t
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_SNR,
 
     /**
      * @brief End of attributes
