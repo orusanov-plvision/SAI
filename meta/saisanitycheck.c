@@ -670,6 +670,7 @@ void check_attr_object_type_provided(
         case SAI_ATTR_VALUE_TYPE_PORT_CTLE_VALUES_LIST:
         case SAI_ATTR_VALUE_TYPE_PORT_FFE_VALUES_LIST:
         case SAI_ATTR_VALUE_TYPE_PORT_DFE_VALUES_LIST:
+        case SAI_ATTR_VALUE_TYPE_PORT_SERDES_VALUES_LIST:
 
         case SAI_ATTR_VALUE_TYPE_ACL_FIELD_DATA_BOOL:
         case SAI_ATTR_VALUE_TYPE_ACL_FIELD_DATA_UINT8:
@@ -971,6 +972,7 @@ void check_attr_default_required(
         case SAI_ATTR_VALUE_TYPE_PORT_CTLE_VALUES_LIST:
         case SAI_ATTR_VALUE_TYPE_PORT_FFE_VALUES_LIST:
         case SAI_ATTR_VALUE_TYPE_PORT_DFE_VALUES_LIST:
+        case SAI_ATTR_VALUE_TYPE_PORT_SERDES_VALUES_LIST:
 
             if (((md->objecttype == SAI_OBJECT_TYPE_PORT) || (md->objecttype == SAI_OBJECT_TYPE_PORT_SERDES))
                  && md->defaultvaluetype == SAI_DEFAULT_VALUE_TYPE_SWITCH_INTERNAL)
@@ -1177,6 +1179,7 @@ void check_attr_default_value_type(
                 case SAI_ATTR_VALUE_TYPE_PORT_CTLE_VALUES_LIST:
                 case SAI_ATTR_VALUE_TYPE_PORT_FFE_VALUES_LIST:
                 case SAI_ATTR_VALUE_TYPE_PORT_DFE_VALUES_LIST:
+                case SAI_ATTR_VALUE_TYPE_PORT_SERDES_VALUES_LIST:
                     break;
 
                 default:
@@ -1781,6 +1784,7 @@ void check_attr_allow_flags(
             case SAI_ATTR_VALUE_TYPE_PORT_CTLE_VALUES_LIST:
             case SAI_ATTR_VALUE_TYPE_PORT_FFE_VALUES_LIST:
             case SAI_ATTR_VALUE_TYPE_PORT_DFE_VALUES_LIST:
+            case SAI_ATTR_VALUE_TYPE_PORT_SERDES_VALUES_LIST:
                 break;
 
             default:
@@ -2625,6 +2629,7 @@ void check_attr_is_primitive(
         case SAI_ATTR_VALUE_TYPE_PORT_CTLE_VALUES_LIST:
         case SAI_ATTR_VALUE_TYPE_PORT_FFE_VALUES_LIST:
         case SAI_ATTR_VALUE_TYPE_PORT_DFE_VALUES_LIST:
+        case SAI_ATTR_VALUE_TYPE_PORT_SERDES_VALUES_LIST:
 
             if (md->isprimitive)
             {

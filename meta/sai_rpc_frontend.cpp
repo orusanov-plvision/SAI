@@ -493,6 +493,7 @@ void convert_attr_thrift_to_sai(const sai_object_type_t sai_ot,
     case SAI_ATTR_VALUE_TYPE_PORT_CTLE_VALUES_LIST:
     case SAI_ATTR_VALUE_TYPE_PORT_FFE_VALUES_LIST:
     case SAI_ATTR_VALUE_TYPE_PORT_DFE_VALUES_LIST:
+    case SAI_ATTR_VALUE_TYPE_PORT_SERDES_VALUES_LIST:
       // not supported
       break;
     default:
