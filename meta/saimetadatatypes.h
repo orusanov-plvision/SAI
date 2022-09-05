@@ -466,6 +466,11 @@ typedef enum _sai_attr_value_type_t
      */
     SAI_ATTR_VALUE_TYPE_PORT_DFE_VALUES_LIST,
 
+    /**
+     * @brief Attribute value is port serdes values list.
+     */
+    SAI_ATTR_VALUE_TYPE_PORT_SERDES_VALUES_LIST,
+
 } sai_attr_value_type_t;
 
 /**
