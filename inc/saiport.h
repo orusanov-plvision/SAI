@@ -3587,6 +3587,38 @@ typedef sai_status_t (*sai_get_port_serdes_attribute_fn)(
         _Inout_ sai_attribute_t *attr_list);
 
 /**
+ * @brief Read Port serdes value.
+ *
+ * @param[in] port_serdes_id Port serdes id
+ * @param[in] serdes_lane Serdes lane
+ * @param[in] reg_addr Register address
+ * @param[out] reg_val Register read value
+ *
+ * @return #SAI_STATUS_SUCCESS on success, failure status code on error
+ */
+typedef sai_status_t (*sai_read_port_serdes_fn)(
+        _In_ sai_object_id_t port_serdes_id,
+        _In_ uint32_t serdes_lane,
+        _In_ uint32_t reg_addr,
+        _Out_ uint32_t *reg_val);
+
+/**
+ * @brief Write Port serdes value.
+ *
+ * @param[in] port_serdes_id Port serdes id
+ * @param[in] serdes_lane Serdes lane
+ * @param[in] reg_addr Register address
+ * @param[in] reg_val Register write value
+ *
+ * @return #SAI_STATUS_SUCCESS on success, failure status code on error
+ */
+typedef sai_status_t (*sai_write_port_serdes_fn)(
+        _In_ sai_object_id_t port_serdes_id,
+        _In_ uint32_t serdes_lane,
+        _In_ uint32_t reg_addr,
+        _In_ const uint32_t *reg_val);
+
+/**
  * @brief List of Port connector attributes
  */
 typedef enum _sai_port_connector_attr_t
@@ -3739,6 +3771,8 @@ typedef struct _sai_port_api_t
     sai_remove_port_serdes_fn              remove_port_serdes;
     sai_set_port_serdes_attribute_fn       set_port_serdes_attribute;
     sai_get_port_serdes_attribute_fn       get_port_serdes_attribute;
+    sai_read_port_serdes_fn                read_port_serdes;
+    sai_write_port_serdes_fn               write_port_serdes;
     sai_bulk_object_create_fn              create_ports;
     sai_bulk_object_remove_fn              remove_ports;
     sai_bulk_object_set_attribute_fn       set_ports_attribute;
