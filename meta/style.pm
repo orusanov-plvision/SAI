@@ -280,6 +280,11 @@ sub CheckFunctionsParams
         next if $fname eq "sai_switch_mdio_cl22_read_fn";
         next if $fname eq "sai_write_port_serdes_fn";
         next if $fname eq "sai_read_port_serdes_fn";
+        next if $fname eq "sai_read_port_fsm_fn";
+        next if $fname eq "sai_trap_port_fsm_fn";
+        next if $fname eq "sai_force_port_fsm_fn";
+        next if $fname eq "sai_release_port_fsm_fn";
+        next if $fname eq "sai_read_trapped_port_fsm_fn";
 
         my @paramsFlags = lc($comment) =~ /\@param\[(\w+)]/gis;
         my @fnparamsFlags = lc($fn) =~ /_(\w+)_.+?(?:\.\.\.|\w+)\s*[,\)]/gis;
@@ -457,7 +462,12 @@ sub CheckFunctionNaming
     switch_register_read
     switch_register_write
     read_port_serdes
-    write_port_serdes);
+    write_port_serdes
+    read_port_fsm
+    trap_port_fsm
+    force_port_fsm
+    release_port_fsm
+    read_trapped_port_fsm);
 
     my $REG = "(" . (join"|",@listex) . ")";
 
@@ -954,7 +964,7 @@ sub CheckHeadersStyle
             {
                 my $param = $1;
 
-                my $pattern = '^(attr_count|object_count|number_of_counters|count|u32|device_addr|start_reg_addr|number_of_registers|reg_val|reg_addr|serdes_lane)$';
+                my $pattern = '^(attr_count|object_count|number_of_counters|count|u32|device_addr|start_reg_addr|number_of_registers|reg_val|reg_addr|serdes_lane|state|state_check|port_lane)$';
 
                 if (not $param =~ /$pattern/)
                 {

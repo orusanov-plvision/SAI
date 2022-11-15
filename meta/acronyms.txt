@@ -51,6 +51,7 @@ FDB - Forwarding Data Base
 FEC - Forward Error Correction
 FFE - Feed Forward Equalization
 FPGA - Field Programmable Gate Array
+FSM - Finite State Machine
 FW  - Firmware
 GCM - Galois Counter Mode
 GMII - Gigabit Media-Independent Interface

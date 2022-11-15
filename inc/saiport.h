@@ -3068,6 +3068,17 @@ typedef enum _sai_port_interrupt_t
 } sai_port_interrupt_t;
 
 /**
+ * @brief Port FSM IDs in FSM read/trap/force/release() call
+ */
+typedef enum _sai_port_fsm_id_t
+{
+    SAI_PORT_FSM_ID_PWR,
+    SAI_PORT_FSM_ID_RX,
+    SAI_PORT_FSM_ID_TX,
+    SAI_PORT_FSM_ID_ANEG
+} sai_port_fsm_id_t;
+
+/**
  * @brief Create port
  *
  * @param[out] port_id Port id
@@ -3701,6 +3712,94 @@ typedef sai_status_t (*sai_write_port_serdes_fn)(
         _In_ const uint32_t *reg_val);
 
 /**
+ * @brief Read Port FSM state code.
+ *
+ * @param[in] port_id Port id
+ * @param[in] port_lane Lane id
+ * @param[in] fsm_id State machine identifier
+ * @param[in] state_check State id to check for internal purposes
+ * @param[out] state Current state
+ *
+ * @return #SAI_STATUS_SUCCESS on success, failure status code on error
+ */
+typedef sai_status_t (*sai_read_port_fsm_fn)(
+        _In_ sai_object_id_t port_id,
+        _In_ uint32_t port_lane,
+        _In_ sai_fsm_id_t fsm_id,
+        _In_ uint32_t state_check,
+        _Out_ uint32_t *state);
+
+/**
+ * @brief Trap Port FSM state code.
+ *
+ * @param[in] port_id Port id
+ * @param[in] port_lane Lane id
+ * @param[in] fsm_id State machine identifier
+ * @param[in] state State code to trap
+ * @param[out] state_check State code read after changes
+ *
+ * @return #SAI_STATUS_SUCCESS on success, failure status code on error
+ */
+typedef sai_status_t (*sai_trap_port_fsm_fn)(
+        _In_ sai_object_id_t port_id,
+        _In_ uint32_t port_lane,
+        _In_ sai_fsm_id_t fsm_id,
+        _In_ uint32_t state,
+        _Out_ uint32_t *state_check);
+
+/**
+ * @brief Force Port FSM state code.
+ *
+ * @param[in] port_id Port id
+ * @param[in] port_lane Lane id
+ * @param[in] fsm_id State machine identifier
+ * @param[in] state State code to force
+ * @param[out] state_check State code read after changes
+ *
+ * @return #SAI_STATUS_SUCCESS on success, failure status code on error
+ */
+typedef sai_status_t (*sai_force_port_fsm_fn)(
+        _In_ sai_object_id_t port_id,
+        _In_ uint32_t port_lane,
+        _In_ sai_fsm_id_t fsm_id,
+        _In_ uint32_t state,
+        _Out_ uint32_t *state_check);
+
+/**
+ * @brief Release Port FSM.
+ *
+ * @param[in] port_id Port id
+ * @param[in] port_lane Lane id
+ * @param[in] fsm_id State machine identifier
+ * @param[out] state_check State code read after changes
+ *
+ * @return #SAI_STATUS_SUCCESS on success, failure status code on error
+ */
+typedef sai_status_t (*sai_release_port_fsm_fn)(
+        _In_ sai_object_id_t port_id,
+        _In_ uint32_t port_lane,
+        _In_ sai_fsm_id_t fsm_id,
+        _Out_ uint32_t *state_check);
+
+/**
+ * @brief Read port FSM and check if given state trapped
+ *
+ * @param[in] port_id Port id
+ * @param[in] port_lane Lane id
+ * @param[in] fsm_id State machine identifier
+ * @param[in] state_check State id to check
+ * @param[out] state State trapped or not
+ *
+ * @return #SAI_STATUS_SUCCESS on success, failure status code on error
+ */
+typedef sai_status_t (*sai_read_trapped_port_fsm_fn)(
+        _In_ sai_object_id_t port_id,
+        _In_ uint32_t port_lane,
+        _In_ sai_fsm_id_t fsm_id,
+        _In_ uint32_t state_check,
+        _Out_ bool *state);
+
+/**
  * @brief List of Port connector attributes
  */
 typedef enum _sai_port_connector_attr_t
@@ -3856,6 +3955,11 @@ typedef struct _sai_port_api_t
     sai_get_port_serdes_attribute_fn       get_port_serdes_attribute;
     sai_read_port_serdes_fn                read_port_serdes;
     sai_write_port_serdes_fn               write_port_serdes;
+    sai_read_port_fsm_fn                   read_port_fsm;
+    sai_trap_port_fsm_fn                   trap_port_fsm;
+    sai_force_port_fsm_fn                  force_port_fsm;
+    sai_release_port_fsm_fn                release_port_fsm;
+    sai_read_trapped_port_fsm_fn           read_trapped_port_fsm;
     sai_bulk_object_create_fn              create_ports;
     sai_bulk_object_remove_fn              remove_ports;
     sai_bulk_object_set_attribute_fn       set_ports_attribute;
