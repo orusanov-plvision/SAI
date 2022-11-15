@@ -2777,6 +2777,14 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_ECMP_MEMBER_COUNT,
 
     /**
+     * @brief Attribute to print debug data from lower layer to internal log
+     *
+     * @type sai_uint32_t
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_DBG_TXRX_DUMP,
+
+    /**
      * @brief End of attributes
      */
     SAI_SWITCH_ATTR_END,
