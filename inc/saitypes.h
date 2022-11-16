@@ -1210,6 +1210,54 @@ typedef struct _sai_port_dfe_values_list_t
 } sai_port_dfe_values_list_t;
 
 /**
+ * @brief Defines a TX RX status.
+ */
+typedef struct _sai_port_txrx_status_value_t
+{
+    uint16_t tx_clock_ready;
+    uint16_t tx_ready;
+    uint16_t cdr_lock;
+    uint16_t rx_clock_ready;
+    uint16_t signal_detect;
+    uint16_t dsp_lock;
+    uint16_t rx_trained;
+    uint16_t pwr_sm;
+    uint16_t tx_sm;
+    uint16_t rx_sm;
+} sai_port_txrx_status_value_t;
+
+/**
+ * @brief Defines a lane with TX RX status.
+ */
+typedef struct _sai_port_lane_txrx_status_value_t
+{
+    uint32_t lane;
+    sai_port_txrx_status_value_t stat;
+} sai_port_lane_txrx_status_value_t;
+
+/**
+ * @brief Defines a port's TX RX status values list
+ *
+ * In get_port_attribute function call, the count member defines the number
+ * of objects which will be returned to the caller in the list member. The
+ * caller must allocate the buffer for the list member and set the count
+ * member to the size of the allocated objects in the list member.
+ *
+ * If the size is large enough to accommodate the list of objects, the
+ * callee must fill the list member and set the count member to the actual
+ * number of objects filled. If the size is not large enough, the callee
+ * must set the count member to the actual number of objects filled in the
+ * list member and return #SAI_STATUS_BUFFER_OVERFLOW. Once the caller
+ * gets such a return code, it may use the returned count member to
+ * re-allocate the list and retry.
+ */
+typedef struct _sai_port_txrx_status_values_list_t
+{
+    uint32_t count;
+    sai_port_lane_txrx_status_value_t *list;
+} sai_port_txrx_status_values_list_t;
+
+/**
  * @brief Enum defining MPLS out segment type
  */
 typedef enum _sai_outseg_type_t
@@ -1535,6 +1583,9 @@ typedef union _sai_attribute_value_t
 
     /** @validonly meta->attrvaluetype == SAI_ATTR_VALUE_TYPE_PORT_SERDES_VALUES_LIST */
     sai_port_serdes_values_list_t portserdesvalues;
+
+    /** @validonly meta->attrvaluetype == SAI_ATTR_VALUE_TYPE_PORT_TXRX_STATUS_VALUES_LIST */
+    sai_port_txrx_status_values_list_t porttxrxstatvalues;
 } sai_attribute_value_t;
 
 /**

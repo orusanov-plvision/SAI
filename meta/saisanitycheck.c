@@ -674,6 +674,7 @@ void check_attr_object_type_provided(
         case SAI_ATTR_VALUE_TYPE_PORT_FFE_VALUES_LIST:
         case SAI_ATTR_VALUE_TYPE_PORT_DFE_VALUES_LIST:
         case SAI_ATTR_VALUE_TYPE_PORT_SERDES_VALUES_LIST:
+        case SAI_ATTR_VALUE_TYPE_PORT_TXRX_STATUS_VALUES_LIST:
 
         case SAI_ATTR_VALUE_TYPE_ACL_FIELD_DATA_BOOL:
         case SAI_ATTR_VALUE_TYPE_ACL_FIELD_DATA_UINT8:
@@ -2643,6 +2644,7 @@ void check_attr_is_primitive(
         case SAI_ATTR_VALUE_TYPE_PORT_FFE_VALUES_LIST:
         case SAI_ATTR_VALUE_TYPE_PORT_DFE_VALUES_LIST:
         case SAI_ATTR_VALUE_TYPE_PORT_SERDES_VALUES_LIST:
+        case SAI_ATTR_VALUE_TYPE_PORT_TXRX_STATUS_VALUES_LIST:
 
             if (md->isprimitive)
             {

@@ -486,6 +486,11 @@ typedef enum _sai_attr_value_type_t
      */
     SAI_ATTR_VALUE_TYPE_PORT_SERDES_VALUES_LIST,
 
+    /**
+     * @brief Attribute value is port TX RX status values list.
+     */
+    SAI_ATTR_VALUE_TYPE_PORT_TXRX_STATUS_VALUES_LIST,
+
 } sai_attr_value_type_t;
 
 /**

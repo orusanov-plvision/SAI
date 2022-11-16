@@ -2273,6 +2273,14 @@ typedef enum _sai_port_attr_t
     SAI_PORT_ATTR_SNR,
 
     /**
+     * @brief Overall TX RX related statuses
+     *
+     * @type sai_port_txrx_status_values_list_t
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_TXRX_STATUS,
+
+    /**
      * @brief End of attributes
      */
     SAI_PORT_ATTR_END,
