@@ -2949,6 +2949,24 @@ typedef enum _sai_port_stat_t
     /** Count of FEC codewords with 16 symbol errors. */
     SAI_PORT_STAT_IF_IN_FEC_CODEWORD_ERRORS_S16,
 
+    /** Count of FEC codewords with 2 burst symbol errors. */
+    SAI_PORT_STAT_IF_IN_FEC_CODEWORD_ERRORS_BURST_S2,
+
+    /** Count of FEC codewords with 3 burst symbol errors. */
+    SAI_PORT_STAT_IF_IN_FEC_CODEWORD_ERRORS_BURST_S3,
+
+    /** Count of FEC codewords with 4 burst symbol errors. */
+    SAI_PORT_STAT_IF_IN_FEC_CODEWORD_ERRORS_BURST_S4,
+
+    /** Count of FEC codewords with 5 burst symbol errors. */
+    SAI_PORT_STAT_IF_IN_FEC_CODEWORD_ERRORS_BURST_S5,
+
+    /** Count of FEC codewords with 6 burst symbol errors. */
+    SAI_PORT_STAT_IF_IN_FEC_CODEWORD_ERRORS_BURST_S6,
+
+    /** Count of PCS alignment BIP errors. */
+    SAI_PORT_STAT_IF_IN_PCS_BIP_ERRORS,
+
     /** Port stat in drop reasons range start */
     SAI_PORT_STAT_IN_DROP_REASON_RANGE_BASE = 0x00001000,
 

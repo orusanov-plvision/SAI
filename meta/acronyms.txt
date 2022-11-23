@@ -10,6 +10,7 @@ BER - Bit Error Rate
 BFD - Bidirectional Forwarding Detection
 BFDV6 - Bidirectional Forwarding Detection for IPv6
 BGP - Border Gateway Protocol
+BIP - Bit Interleaved Parity
 BOS - Bottom Of Stack
 CAM - Content Addressable Memory
 CAUI - 100 Gigabit Attachment Unit Interface
