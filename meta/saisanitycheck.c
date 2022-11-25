@@ -675,6 +675,7 @@ void check_attr_object_type_provided(
         case SAI_ATTR_VALUE_TYPE_PORT_DFE_VALUES_LIST:
         case SAI_ATTR_VALUE_TYPE_PORT_SERDES_VALUES_LIST:
         case SAI_ATTR_VALUE_TYPE_PORT_TXRX_STATUS_VALUES_LIST:
+        case SAI_ATTR_VALUE_TYPE_PORT_RSFEC_STATUS_VALUE:
 
         case SAI_ATTR_VALUE_TYPE_ACL_FIELD_DATA_BOOL:
         case SAI_ATTR_VALUE_TYPE_ACL_FIELD_DATA_UINT8:
@@ -2703,6 +2704,7 @@ void check_attr_is_primitive(
         case SAI_ATTR_VALUE_TYPE_SYSTEM_PORT_CONFIG:
         case SAI_ATTR_VALUE_TYPE_FABRIC_PORT_REACHABILITY:
         case SAI_ATTR_VALUE_TYPE_LATCH_STATUS:
+        case SAI_ATTR_VALUE_TYPE_PORT_RSFEC_STATUS_VALUE:
 
             if (!md->isprimitive)
             {

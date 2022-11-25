@@ -1258,6 +1258,18 @@ typedef struct _sai_port_txrx_status_values_list_t
 } sai_port_txrx_status_values_list_t;
 
 /**
+ * @brief Defines a RS FEC status.
+ */
+typedef struct _sai_port_rsfec_status_value_t
+{
+    uint16_t pcs_lane_alignment;
+    uint16_t fec_lane_alignment;
+    uint16_t fec_lane_am_lock;
+    uint16_t latched_fec_high_err;
+    uint16_t curr_fec_high_err;
+} sai_port_rsfec_status_value_t;
+
+/**
  * @brief Enum defining MPLS out segment type
  */
 typedef enum _sai_outseg_type_t
@@ -1586,6 +1598,9 @@ typedef union _sai_attribute_value_t
 
     /** @validonly meta->attrvaluetype == SAI_ATTR_VALUE_TYPE_PORT_TXRX_STATUS_VALUES_LIST */
     sai_port_txrx_status_values_list_t porttxrxstatvalues;
+
+    /** @validonly meta->attrvaluetype == SAI_ATTR_VALUE_TYPE_PORT_RSFEC_STATUS_VALUE */
+    sai_port_rsfec_status_value_t portrsfecstatvalue;
 } sai_attribute_value_t;
 
 /**

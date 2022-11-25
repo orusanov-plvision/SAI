@@ -2281,6 +2281,14 @@ typedef enum _sai_port_attr_t
     SAI_PORT_ATTR_TXRX_STATUS,
 
     /**
+     * @brief Overall RS FEC related statuses
+     *
+     * @type sai_port_rsfec_status_value_t
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_RSFEC_STATUS,
+
+    /**
      * @brief End of attributes
      */
     SAI_PORT_ATTR_END,

@@ -491,6 +491,10 @@ typedef enum _sai_attr_value_type_t
      */
     SAI_ATTR_VALUE_TYPE_PORT_TXRX_STATUS_VALUES_LIST,
 
+    /**
+     * @brief Attribute value is port RS FEC status value.
+     */
+    SAI_ATTR_VALUE_TYPE_PORT_RSFEC_STATUS_VALUE,
 } sai_attr_value_type_t;
 
 /**
