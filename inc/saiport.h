@@ -2289,6 +2289,14 @@ typedef enum _sai_port_attr_t
     SAI_PORT_ATTR_RSFEC_STATUS,
 
     /**
+     * @brief Plot the 1D eye diagram
+     *
+     * @type bool
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_PLOT_EYE_1D,
+
+    /**
      * @brief End of attributes
      */
     SAI_PORT_ATTR_END,
