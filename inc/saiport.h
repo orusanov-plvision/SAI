@@ -2297,6 +2297,28 @@ typedef enum _sai_port_attr_t
     SAI_PORT_ATTR_PLOT_EYE_1D,
 
     /**
+     * @brief Set the FEC counter configuration.
+     *
+     * true - use hardware reset; false - use power management reset
+     *
+     * @type bool
+     * @flags CREATE_AND_SET
+     * @default false
+     */
+    SAI_PORT_ATTR_FEC_COUNTER_CLEAR_CONFIG,
+
+    /**
+     * @brief Set the FEC counter link mode configuration.
+     *
+     * All counters are counted: true - Per FEC; false - Per link
+     *
+     * @type bool
+     * @flags CREATE_AND_SET
+     * @default false
+     */
+    SAI_PORT_ATTR_FEC_COUNTER_LINK_MODE_CONFIG,
+
+    /**
      * @brief End of attributes
      */
     SAI_PORT_ATTR_END,
